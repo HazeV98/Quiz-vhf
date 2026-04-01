@@ -133,7 +133,11 @@
 
     async function loadDatabaseAndStart() {
         try {
-            const response = await fetch('domande.json');
+            // Il parametro "?v=" con il timestamp corrente e l'istruzione 'no-store' 
+            // costringono il browser a scaricare sempre l'ultimissima versione del JSON, ignorando la cache.
+            const urlAntiCache = 'domande.json?v=' + new Date().getTime();
+            const response = await fetch(urlAntiCache, { cache: 'no-store' });
+            
             if (!response.ok) throw new Error("Errore di rete");
             quizData = await response.json();
             startQuiz();
