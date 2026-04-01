@@ -1,0 +1,99 @@
+<script>
+    let currentQuestions = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let quizData = []; // Il database ora parte vuoto e viene riempito dal JSON
+
+    const questionEl = document.getElementById("question-text");
+    const optionsEl = document.getElementById("options-container");
+    const nextBtn = document.getElementById("next-btn");
+    const progressEl = document.getElementById("progress");
+    const quizBlock = document.getElementById("quiz-block");
+    const scoreBoard = document.getElementById("score-board");
+
+    function shuffle(array) {
+        let currentIndex = array.length, randomIndex;
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+        return array;
+    }
+
+    // Nuova funzione asincrona per caricare il file JSON esterno
+    async function loadDatabaseAndStart() {
+        try {
+            const response = await fetch('domande.json');
+            if (!response.ok) throw new Error("Errore di rete");
+            quizData = await response.json();
+            startQuiz();
+        } catch (error) {
+            questionEl.innerText = "Errore nel caricamento del database. Assicurati che il file domande.json esista e che l'app sia in esecuzione su un server locale (CORS).";
+            progressEl.innerText = "Errore";
+        }
+    }
+
+    function startQuiz() {
+        currentQuestions = shuffle([...quizData]).slice(0, 30);
+        currentQuestionIndex = 0;
+        score = 0;
+        quizBlock.style.display = "block";
+        scoreBoard.style.display = "none";
+        loadQuestion();
+    }
+
+    function loadQuestion() {
+        nextBtn.style.display = "none";
+        const currentQ = currentQuestions[currentQuestionIndex];
+        
+        progressEl.innerText = `Domanda ${currentQuestionIndex + 1} di ${currentQuestions.length}`;
+        questionEl.innerText = currentQ.question;
+        
+        optionsEl.innerHTML = "";
+        
+        currentQ.options.forEach((option, index) => {
+            const button = document.createElement("button");
+            button.innerText = option;
+            button.onclick = () => selectAnswer(index, button);
+            optionsEl.appendChild(button);
+        });
+    }
+
+    function selectAnswer(selectedIndex, buttonClicked) {
+        const currentQ = currentQuestions[currentQuestionIndex];
+        const buttons = optionsEl.querySelectorAll("button");
+        
+        // Disabilita tutti i bottoni
+        buttons.forEach(btn => btn.disabled = true);
+        
+        if (selectedIndex === currentQ.answer) {
+            buttonClicked.classList.add("correct");
+            score++;
+        } else {
+            buttonClicked.classList.add("wrong");
+            buttons[currentQ.answer].classList.add("correct");
+        }
+        
+        nextBtn.style.display = "block";
+    }
+
+    function nextQuestion() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < currentQuestions.length) {
+            loadQuestion();
+        } else {
+            showScore();
+        }
+    }
+
+    function showScore() {
+        quizBlock.style.display = "none";
+        scoreBoard.style.display = "block";
+        document.getElementById("final-score").innerText = score;
+        document.getElementById("total-questions").innerText = currentQuestions.length;
+    }
+
+    // Avvia il caricamento del JSON appena la pagina si carica
+    window.onload = loadDatabaseAndStart;
+</script>
