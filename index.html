@@ -9,10 +9,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f4f8;
             color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            /* Modificato per permettere lo scorrimento della pagina */
+            padding: 40px 20px;
             margin: 0;
         }
         .quiz-container {
@@ -20,25 +18,42 @@
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            max-width: 600px;
-            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
         }
         h1 {
             text-align: center;
             color: #0056b3;
-            font-size: 24px;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+        #loading-text {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #6c757d;
+        }
+        .question-block {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .question-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
         .question {
             font-size: 18px;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .options {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        button {
+        button.option-btn {
             background-color: #e9ecef;
             border: 2px solid transparent;
             padding: 12px;
@@ -47,79 +62,149 @@
             cursor: pointer;
             transition: all 0.2s;
             text-align: left;
+            width: 100%;
         }
-        button:hover {
+        button.option-btn:hover {
             background-color: #dee2e6;
         }
-        button.correct {
-            background-color: #d4edda;
-            border-color: #28a745;
-            color: #155724;
+        /* Stile per la risposta selezionata in attesa di verifica */
+        button.option-btn.selected {
+            background-color: #cce5ff;
+            border-color: #b8daff;
+            color: #004085;
         }
-        button.wrong {
-            background-color: #f8d7da;
-            border-color: #dc3545;
-            color: #721c24;
+        button.option-btn.correct {
+            background-color: #d4edda !important;
+            border-color: #28a745 !important;
+            color: #155724 !important;
         }
-        button:disabled {
-            cursor: not-allowed;
+        button.option-btn.wrong {
+            background-color: #f8d7da !important;
+            border-color: #dc3545 !important;
+            color: #721c24 !important;
         }
-        #next-btn, #restart-btn {
+        button.option-btn:disabled {
+            cursor: default;
+        }
+        #submit-btn {
             background-color: #0056b3;
             color: white;
             border: none;
-            margin-top: 20px;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-top: 30px;
             width: 100%;
             text-align: center;
             display: none;
+            cursor: pointer;
         }
-        #next-btn:hover, #restart-btn:hover {
+        #submit-btn:hover {
             background-color: #004494;
         }
-        .score-board {
-            text-align: center;
-            font-size: 20px;
+        
+        /* Tasto Ripeti Test fissato in alto a destra */
+        #sticky-restart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
             font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             display: none;
+            z-index: 999;
         }
-        .progress {
-            text-align: right;
-            font-size: 14px;
-            color: #6c757d;
-            margin-bottom: 10px;
+        #sticky-restart:hover {
+            background-color: #218838;
+        }
+
+        /* Finestra Modale per il risultato */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .modal-content h2 {
+            margin-top: 0;
+            font-size: 28px;
+        }
+        .pass { color: #28a745; }
+        .fail { color: #dc3545; }
+        .modal-content p {
+            font-size: 18px;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+        .close-modal-btn {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .close-modal-btn:hover {
+            background-color: #004494;
         }
     </style>
 </head>
 <body>
 
+<button id="sticky-restart" onclick="startQuiz()">Ripeti Test 🔄</button>
+
 <div class="quiz-container">
     <h1>Preparazione Esame VHF 📻</h1>
-    <div id="quiz-block">
-        <div class="progress" id="progress">Domanda 1 di 15</div>
-        <div class="question" id="question-text">Caricamento in corso...</div>
-        <div class="options" id="options-container"></div>
-        <button id="next-btn" onclick="nextQuestion()">Prossima Domanda</button>
-    </div>
+    <div id="loading-text">Caricamento in corso...</div>
     
-    <div class="score-board" id="score-board">
-        <p>Quiz Terminato!</p>
-        <p>Hai risposto correttamente a <span id="final-score">0</span> su <span id="total-questions">0</span> domande.</p>
-        <button id="restart-btn" onclick="startQuiz()" style="display: block;">Rifai il Quiz</button>
+    <div id="quiz-list"></div>
+    
+    <button id="submit-btn" onclick="verifyTest()">Verifica</button>
+</div>
+
+<div id="result-modal" class="modal">
+    <div class="modal-content">
+        <h2 id="modal-title"></h2>
+        <p id="modal-text"></p>
+        <button class="close-modal-btn" onclick="closeModal()">Guarda le correzioni</button>
     </div>
 </div>
 
 <script>
-    let currentQuestions = [];
-    let currentQuestionIndex = 0;
-    let score = 0;
     let quizData = []; 
+    let currentQuestions = [];
+    let userAnswers = []; // Array per memorizzare le risposte scelte dall'utente
 
-    const questionEl = document.getElementById("question-text");
-    const optionsEl = document.getElementById("options-container");
-    const nextBtn = document.getElementById("next-btn");
-    const progressEl = document.getElementById("progress");
-    const quizBlock = document.getElementById("quiz-block");
-    const scoreBoard = document.getElementById("score-board");
+    const quizListEl = document.getElementById("quiz-list");
+    const submitBtn = document.getElementById("submit-btn");
+    const loadingText = document.getElementById("loading-text");
+    const stickyRestart = document.getElementById("sticky-restart");
+    const resultModal = document.getElementById("result-modal");
 
     function shuffle(array) {
         let currentIndex = array.length, randomIndex;
@@ -133,8 +218,6 @@
 
     async function loadDatabaseAndStart() {
         try {
-            // Il parametro "?v=" con il timestamp corrente e l'istruzione 'no-store' 
-            // costringono il browser a scaricare sempre l'ultimissima versione del JSON, ignorando la cache.
             const urlAntiCache = 'domande.json?v=' + new Date().getTime();
             const response = await fetch(urlAntiCache, { cache: 'no-store' });
             
@@ -142,61 +225,134 @@
             quizData = await response.json();
             startQuiz();
         } catch (error) {
-            questionEl.innerText = "Errore nel caricamento del database. Assicurati che il file domande.json esista e che non ci siano errori di sintassi al suo interno.";
-            progressEl.innerText = "Errore";
+            loadingText.innerText = "Errore nel caricamento del database. Assicurati che il file domande.json esista e che non ci siano errori di sintassi.";
         }
     }
 
     function startQuiz() {
+        // Prepara 30 domande casuali
         currentQuestions = shuffle([...quizData]).slice(0, 30);
-        currentQuestionIndex = 0;
-        score = 0;
-        quizBlock.style.display = "block";
-        scoreBoard.style.display = "none";
-        loadQuestion();
+        // Inizializza l'array delle risposte con valori nulli
+        userAnswers = new Array(currentQuestions.length).fill(null);
+        
+        // Reset visivo
+        stickyRestart.style.display = "none";
+        resultModal.style.display = "none";
+        submitBtn.style.display = "block";
+        loadingText.style.display = "none";
+        
+        renderQuestions();
+        window.scrollTo(0, 0);
     }
 
-    function loadQuestion() {
-        nextBtn.style.display = "none";
-        const currentQ = currentQuestions[currentQuestionIndex];
+    function renderQuestions() {
+        quizListEl.innerHTML = "";
         
-        progressEl.innerText = `Domanda ${currentQuestionIndex + 1} di ${currentQuestions.length}`;
-        questionEl.innerText = currentQ.question;
-        
-        optionsEl.innerHTML = "";
-        
-        currentQ.options.forEach((option, index) => {
-            const button = document.createElement("button");
-            button.innerText = option;
-            button.onclick = () => selectAnswer(index, button);
-            optionsEl.appendChild(button);
+        currentQuestions.forEach((q, qIndex) => {
+            const block = document.createElement("div");
+            block.className = "question-block";
+            block.id = "q-block-" + qIndex;
+            
+            const qText = document.createElement("div");
+            qText.className = "question";
+            qText.innerText = `${qIndex + 1}. ${q.question}`;
+            block.appendChild(qText);
+            
+            const optionsDiv = document.createElement("div");
+            optionsDiv.className = "options";
+            
+            q.options.forEach((opt, oIndex) => {
+                const btn = document.createElement("button");
+                btn.className = "option-btn";
+                btn.innerText = opt;
+                btn.onclick = () => selectAnswer(qIndex, oIndex, btn, optionsDiv);
+                optionsDiv.appendChild(btn);
+            });
+            
+            block.appendChild(optionsDiv);
+            quizListEl.appendChild(block);
         });
     }
 
-    function selectAnswer(selectedIndex, buttonClicked) {
-        const currentQ = currentQuestions[currentQuestionIndex];
-        const buttons = optionsEl.querySelectorAll("button");
+    function selectAnswer(qIndex, oIndex, btnClicked, optionsDiv) {
+        // Se il test è già stato verificato (tasto ripeti visibile), blocca le modifiche
+        if (stickyRestart.style.display === "block") return;
+
+        // Salva la scelta dell'utente
+        userAnswers[qIndex] = oIndex;
         
-        buttons.forEach(btn => btn.disabled = true);
+        // Rimuove la selezione precedente in questa specifica domanda
+        const buttons = optionsDiv.querySelectorAll("button");
+        buttons.forEach(btn => btn.classList.remove("selected"));
         
-        if (selectedIndex === currentQ.answer) {
-            buttonClicked.classList.add("correct");
-            score++;
-        } else {
-            buttonClicked.classList.add("wrong");
-            buttons[currentQ.answer].classList.add("correct");
-        }
-        
-        nextBtn.style.display = "block";
+        // Evidenzia la nuova scelta
+        btnClicked.classList.add("selected");
     }
 
-    function nextQuestion() {
-        currentQuestionIndex++;
-        if (currentQuestionIndex < currentQuestions.length) {
-            loadQuestion();
-        } else {
-            showScore();
+    function verifyTest() {
+        // Controlla se l'utente ha risposto a tutte le domande
+        if (userAnswers.includes(null)) {
+            alert("Attenzione: devi rispondere a tutte le 30 domande prima di verificare il test!");
+            return;
         }
+
+        let errorsCount = 0;
+        
+        // Calcola gli errori
+        currentQuestions.forEach((q, index) => {
+            if (userAnswers[index] !== q.answer) {
+                errorsCount++;
+            }
+        });
+        
+        const modalTitle = document.getElementById("modal-title");
+        const modalText = document.getElementById("modal-text");
+        
+        // Logica per passare il test (massimo 3 errori)
+        if (errorsCount <= 3) {
+            modalTitle.innerText = "Test Passato! 🎉";
+            modalTitle.className = "pass";
+        } else {
+            modalTitle.innerText = "Test Non Passato";
+            modalTitle.className = "fail";
+        }
+        
+        modalText.innerHTML = `Hai commesso <strong>${errorsCount}</strong> errori su ${currentQuestions.length} domande.<br><br>Risposte esatte: ${currentQuestions.length - errorsCount}/${currentQuestions.length}`;
+        
+        resultModal.style.display = "flex";
+    }
+
+    function closeModal() {
+        resultModal.style.display = "none";
+        submitBtn.style.display = "none";
+        stickyRestart.style.display = "block";
+        
+        showCorrections();
+        window.scrollTo(0, 0); // Torna all'inizio per rivedere le correzioni
+    }
+
+    function showCorrections() {
+        currentQuestions.forEach((q, qIndex) => {
+            const block = document.getElementById("q-block-" + qIndex);
+            const buttons = block.querySelectorAll("button");
+            
+            // Disabilita tutti i pulsanti
+            buttons.forEach(btn => btn.disabled = true);
+            
+            const selectedOpt = userAnswers[qIndex];
+            
+            if (selectedOpt === q.answer) {
+                // Risposta esatta
+                buttons[selectedOpt].classList.add("correct");
+                buttons[selectedOpt].classList.remove("selected");
+            } else {
+                // Risposta sbagliata
+                buttons[selectedOpt].classList.add("wrong");
+                buttons[selectedOpt].classList.remove("selected");
+                // Evidenzia quella che era corretta
+                buttons[q.answer].classList.add("correct");
+            }
+        });
     }
 
     window.onload = loadDatabaseAndStart;
@@ -204,4 +360,3 @@
 
 </body>
 </html>
- 
