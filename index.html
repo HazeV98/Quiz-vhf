@@ -1,8 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz di Ripasso - Corso VHF</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #0056b3;
+            font-size: 24px;
+        }
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        button {
+            background-color: #e9ecef;
+            border: 2px solid transparent;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+        }
+        button:hover {
+            background-color: #dee2e6;
+        }
+        button.correct {
+            background-color: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+        button.wrong {
+            background-color: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+        button:disabled {
+            cursor: not-allowed;
+        }
+        #next-btn, #restart-btn {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            display: none;
+        }
+        #next-btn:hover, #restart-btn:hover {
+            background-color: #004494;
+        }
+        .score-board {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            display: none;
+        }
+        .progress {
+            text-align: right;
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Preparazione Esame VHF 📻</h1>
+    <div id="quiz-block">
+        <div class="progress" id="progress">Domanda 1 di 15</div>
+        <div class="question" id="question-text">Caricamento in corso...</div>
+        <div class="options" id="options-container"></div>
+        <button id="next-btn" onclick="nextQuestion()">Prossima Domanda</button>
+    </div>
+    
+    <div class="score-board" id="score-board">
+        <p>Quiz Terminato!</p>
+        <p>Hai risposto correttamente a <span id="final-score">0</span> su <span id="total-questions">0</span> domande.</p>
+        <button id="restart-btn" onclick="startQuiz()" style="display: block;">Rifai il Quiz</button>
+    </div>
+</div>
+
 <script>
     let currentQuestions = [];
     let currentQuestionIndex = 0;
     let score = 0;
-    let quizData = []; // Il database ora parte vuoto e viene riempito dal JSON
+    let quizData = []; 
 
     const questionEl = document.getElementById("question-text");
     const optionsEl = document.getElementById("options-container");
@@ -21,7 +131,6 @@
         return array;
     }
 
-    // Nuova funzione asincrona per caricare il file JSON esterno
     async function loadDatabaseAndStart() {
         try {
             const response = await fetch('domande.json');
@@ -29,7 +138,7 @@
             quizData = await response.json();
             startQuiz();
         } catch (error) {
-            questionEl.innerText = "Errore nel caricamento del database. Assicurati che il file domande.json esista e che l'app sia in esecuzione su un server locale (CORS).";
+            questionEl.innerText = "Errore nel caricamento del database. Assicurati che il file domande.json esista e che non ci siano errori di sintassi al suo interno.";
             progressEl.innerText = "Errore";
         }
     }
@@ -64,7 +173,6 @@
         const currentQ = currentQuestions[currentQuestionIndex];
         const buttons = optionsEl.querySelectorAll("button");
         
-        // Disabilita tutti i bottoni
         buttons.forEach(btn => btn.disabled = true);
         
         if (selectedIndex === currentQ.answer) {
@@ -87,13 +195,9 @@
         }
     }
 
-    function showScore() {
-        quizBlock.style.display = "none";
-        scoreBoard.style.display = "block";
-        document.getElementById("final-score").innerText = score;
-        document.getElementById("total-questions").innerText = currentQuestions.length;
-    }
-
-    // Avvia il caricamento del JSON appena la pagina si carica
     window.onload = loadDatabaseAndStart;
 </script>
+
+</body>
+</html>
+ 
