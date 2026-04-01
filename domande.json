@@ -1,0 +1,486 @@
+[
+  {
+    "question": "Cosa significa l'acronimo GMDSS?",
+    "options": [
+      "Global Marine Digital Security System",
+      "Global Maritime Distress and Safety Sistem",
+      "General Maritime Digital Service System",
+      "Global Maritime Data and Satellite System"
+    ],
+    "answer": 1,
+    [span_0](start_span)"rationale": "GMDSS sta per Global Maritime Distress and Safety Sistem.[span_0](end_span)"
+  },
+  {
+    "question": "In quale gamma di frequenze operano le onde radio VHF?",
+    "options": [
+      "Tra 3 e 30 MHz",
+      "Tra 300 e 3000 MHz",
+      "Tra 30 e 300 MHz",
+      "Tra 156 e 162 kHz"
+    ],
+    "answer": 2,
+    [span_1](start_span)"rationale": "Il VHF comprende le onde elettromagnetiche nella gamma tra 30 e 300 MHz.[span_1](end_span)"
+  },
+  {
+    "question": "A quanti metri equivale un Miglio marino (NM)?",
+    "options": [
+      "1000 metri",
+      "1609 metri",
+      "1852 metri",
+      "2000 metri"
+    ],
+    "answer": 2,
+    [span_2](start_span)"rationale": "Il Miglio marino è un'unità di distanza pari a 1852 metri.[span_2](end_span)"
+  },
+  {
+    "question": "Da quante cifre è formato l'identificativo MMSI?",
+    "options": [
+      "7 cifre",
+      "9 cifre",
+      "11 cifre",
+      "4 lettere"
+    ],
+    "answer": 1,
+    [span_3](start_span)"rationale": "L'MMSI è un codice numerico composto da 9 cifre.[span_3](end_span)"
+  },
+  {
+    "question": "Qual è il codice MID (Maritime Identification Digit) assegnato all'Italia?",
+    "options": [
+      "238",
+      "111",
+      "247",
+      "000"
+    ],
+    "answer": 2,
+    [span_4](start_span)"rationale": "Il codice MID italiano è 247.[span_4](end_span)"
+  },
+  {
+    "question": "Quale ente sviluppa standard di comunicazione elettronica come il Buffer per l'interfaccia GPS?",
+    "options": [
+      "ITU",
+      "NMEA",
+      "AAIC",
+      "MED"
+    ],
+    "answer": 1,
+    [span_5](start_span)"rationale": "La NMEA (National Marine Electronics Association) sviluppa standard di comunicazione elettronica in ambito marittimo.[span_5](end_span)"
+  },
+  {
+    "question": "Cosa definisce la direttiva europea MED?",
+    "options": [
+      "La gestione delle risorse dello spettro radio",
+      "Le procedure di sicurezza e i requisiti dell'equipaggiamento marittimo",
+      "L'assegnazione dei codici MMSI",
+      "La ripartizione delle aree GMDSS"
+    ],
+    "answer": 1,
+    [span_6](start_span)"rationale": "La MED (Marine Equipment Directive) stabilisce i requisiti e le procedure di sicurezza dell'equipaggiamento marittimo.[span_6](end_span)"
+  },
+  {
+    "question": "Quale agenzia dell'ONU gestisce lo spettro radio a livello globale?",
+    "options": [
+      "AAIC",
+      "NMEA",
+      "ITU",
+      "CE"
+    ],
+    "answer": 2,
+    [span_7](start_span)"rationale": "L'ITU (International Telecomunication Union) è l'agenzia ONU responsabile della gestione delle risorse dello spettro radio a livello globale.[span_7](end_span)"
+  },
+  {
+    "question": "Cosa indica l'acronimo inglese S.W.R. in ambito radio?",
+    "options": [
+      "Standard Wave Reception",
+      "Short Wave Radio",
+      "Standing Wave Ratio",
+      "Safety Warning Response"
+    ],
+    "answer": 2,
+    [span_8](start_span)"rationale": "S.W.R. sta per Standing Wave Ratio, in italiano Rapporto Onda Stazionaria (ROS).[span_8](end_span)"
+  },
+  {
+    "question": "Quale tonnellaggio definisce il 'Naviglio maggiore' nel sistema GMDSS?",
+    "options": [
+      "Superiore a 50 tonnellate",
+      "Superiore a 100 tonnellate",
+      "Superiore a 300 tonnellate",
+      "Superiore a 500 tonnellate"
+    ],
+    "answer": 2,
+    [span_9](start_span)"rationale": "Il Naviglio maggiore comprende le navi con stazza superiore alle 300 tonnellate.[span_9](end_span)"
+  },
+  {
+    "question": "Quante sono le zone di copertura individuate dal sistema GMDSS?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 2,
+    [span_10](start_span)"rationale": "Le zone individuate dal sistema GMDSS sono 4.[span_10](end_span)"
+  },
+  {
+    "question": "Qual è la copertura media della zona GMDSS Area A1?",
+    "options": [
+      "Circa 150 mn",
+      "Circa 20/40 mn",
+      "Oltre 70 gradi di latitudine",
+      "Copertura globale"
+    ],
+    "answer": 1,
+    [span_11](start_span)"rationale": "L'Area A1 è una zona con una copertura media di circa 20/40 mn.[span_11](end_span)"
+  },
+  {
+    "question": "Tramite quale sistema avvengono le comunicazioni nell'Area A3?",
+    "options": [
+      "Sistemi VHF DSC",
+      "Sistemi MF",
+      "Sistemi satellitari INMARSAT",
+      "Sistemi HF"
+    ],
+    "answer": 2,
+    [span_12](start_span)"rationale": "Nell'Area A3 le comunicazioni possono avvenire solamente mediante sistemi satellitari INMARSAT.[span_12](end_span)"
+  },
+  {
+    "question": "Su quale canale avvengono trasmissione e ricezione delle chiamate DSC in banda VHF?",
+    "options": [
+      "Canale 16",
+      "Canale 13",
+      "Canale 70",
+      "Canale 09"
+    ],
+    "answer": 2,
+    [span_13](start_span)"rationale": "La trasmissione e la ricezione delle chiamate DSC in banda VHF avvengono sul canale 70.[span_13](end_span)"
+  },
+  {
+    "question": "È consentito effettuare trasmissioni in fonia (voce) sul canale 70?",
+    "options": [
+      "Sì, ma solo per emergenze.",
+      "Sì, se l'apparato è datato.",
+      "Sì, per comunicazioni di Routine.",
+      "No, non si deve mai effettuare alcuna trasmissione in fonia sul canale 70."
+    ],
+    "answer": 3,
+    [span_14](start_span)"rationale": "Non si deve mai effettuare alcuna trasmissione in fonia sul canale 70, dedicato esclusivamente al DSC.[span_14](end_span)"
+  },
+  {
+    "question": "Quale autonomia minima deve garantire la batteria di alimentazione della radio in Laguna Veneta?",
+    "options": [
+      "1 ora",
+      "3 ore",
+      "6 ore",
+      "12 ore"
+    ],
+    "answer": 1,
+    [span_15](start_span)"rationale": "La batteria deve garantire un'autonomia minima di 3 ore.[span_15](end_span)"
+  },
+  {
+    "question": "Quale certificato è utilizzato nel diporto per comunicazioni a corto raggio?",
+    "options": [
+      "GOC",
+      "ROC",
+      "LRC",
+      "SRC"
+    ],
+    "answer": 3,
+    [span_16](start_span)"rationale": "L'SRC (Short Range Certificate) è il certificato di operatore utilizzato nel diporto per comunicazioni a corto raggio.[span_16](end_span)"
+  },
+  {
+    "question": "A quale velocità si propagano le onde radio nello spazio?",
+    "options": [
+      "Circa 340 m/s",
+      "Circa 1.500 m/s",
+      "Circa 300.000 km/s",
+      "Circa 150.000 km/s"
+    ],
+    "answer": 2,
+    [span_17](start_span)"rationale": "Le onde radio si propagano nello spazio alla velocità della luce, circa 300.000 km/s.[span_17](end_span)"
+  },
+  {
+    "question": "Come viene definita la portata radio nella gamma VHF?",
+    "options": [
+      "Satellitare",
+      "Ionofosferica",
+      "Ottica",
+      "Globale"
+    ],
+    "answer": 2,
+    [span_18](start_span)"rationale": "La portata radio nella gamma VHF è definita come 'ottica': le comunicazioni sono garantite finché le due antenne si vedono reciprocamente.[span_18](end_span)"
+  },
+  {
+    "question": "A bordo delle navi sono normalmente ammesse le antenne direttive?",
+    "options": [
+      "Sì, sempre.",
+      "Sì, per le comunicazioni di Routine.",
+      "No, salvo eccezioni per le stazioni radio costiere.",
+      "No, sono vietate a livello globale per qualsiasi uso."
+    ],
+    "answer": 2,
+    [span_19](start_span)"rationale": "A bordo delle navi non sono ammesse antenne direttive, salvo eccezioni per stazioni radio costiere.[span_19](end_span)"
+  },
+  {
+    "question": "Qual è la potenza massima consentita per un apparato VHF fisso?",
+    "options": [
+      "1 Watt",
+      "5 Watt",
+      "25 Watt",
+      "50 Watt"
+    ],
+    "answer": 2,
+    [span_20](start_span)"rationale": "Per essere conforme alle norme, un apparato VHF fisso può trasmettere alla potenza massima di 25 Watt.[span_20](end_span)"
+  },
+  {
+    "question": "Qual è lo scopo principale del comando Low Power (1 Watt)?",
+    "options": [
+      "Ridurre l'assorbimento dell'antenna GPS.",
+      "Migliorare la portata ottica.",
+      "Limitare il consumo energetico e ridurre le interferenze tra canali vicini.",
+      "Aumentare il R.O.S."
+    ],
+    "answer": 2,
+    [span_21](start_span)[span_22](start_span)"rationale": "La potenza ridotta limita il consumo energetico e riduce le interferenze tra canali vicini per comunicazioni a corto raggio.[span_21](end_span)[span_22](end_span)"
+  },
+  {
+    "question": "Quante manovre sono necessarie per lanciare un segnale tramite il tasto DISTRESS?",
+    "options": [
+      "Una: premere il tasto.",
+      "Due: alzare il coperchio e premere il tasto.",
+      "Tre: inserire il PIN, alzare il coperchio e premere il tasto.",
+      "Due: spegnere e riaccendere la radio."
+    ],
+    "answer": 1,
+    [span_23](start_span)"rationale": "La norma prevede che per lanciare un DISTRESS sia necessario eseguire due manovre: alzare il coperchio e premere il tasto.[span_23](end_span)"
+  },
+  {
+    "question": "Qual è la funzione della manopola SQL (Squelch)?",
+    "options": [
+      "Aumentare il volume dell'altoparlante.",
+      "Selezionare il canale 16.",
+      "Porre una soglia al rumore di fondo tipico dei segnali radio.",
+      "Avviare l'ascolto simultaneo su due canali."
+    ],
+    "answer": 2,
+    [span_24](start_span)"rationale": "La manopola SQL (Squelch) pone una soglia al rumore di fondo tipico dei segnali radio.[span_24](end_span)"
+  },
+  {
+    "question": "A cosa serve il tasto Dual Watch?",
+    "options": [
+      "A ridurre la potenza a 1W.",
+      "Ad ascoltare due stazioni costiere in contemporanea.",
+      "A selezionare l'ascolto alternato tra il canale 16 e un altro canale scelto dall'operatore.",
+      "Ad attivare il GPS."
+    ],
+    "answer": 2,
+    [span_25](start_span)"rationale": "Questo tasto permette di selezionare l'ascolto alternato tra il canale 16 e un altro canale scelto dall'operatore.[span_25](end_span)"
+  },
+  {
+    "question": "Quante antenne richiedono obbligatoriamente gli apparati in Classe A?",
+    "options": [
+      "Una sola antenna condivisa.",
+      "Due antenne separate.",
+      "Tre antenne direttive.",
+      "Nessuna antenna esterna."
+    ],
+    "answer": 1,
+    [span_26](start_span)"rationale": "Richiedono obbligatoriamente l'impiego di due antenne separate: una per il ricetrasmettitore ed un'altra per la guardia sul canale 70.[span_26](end_span)"
+  },
+  {
+    "question": "Gli apparati VHF in Classe D possono dare automaticamente il segnale di ACK alla ricezione di un Distress?",
+    "options": [
+      "Sì, è la loro funzione principale.",
+      "Sì, ma solo su richiesta.",
+      "No, non sono predisposti per dare il segnale di ACK alla ricezione di una chiamata di Distress.",
+      "Sì, se collegati al NMEA Buffer."
+    ],
+    "answer": 2,
+    [span_27](start_span)"rationale": "Gli apparati in Classe D non sono predisposti per dare il segnale di ACK alla ricezione di una chiamata di Distress.[span_27](end_span)"
+  },
+  {
+    "question": "Qual è il solido di irradiazione tipico di un'antenna VHF per imbarcazioni?",
+    "options": [
+      "A forma di cono direzionale.",
+      "A forma di sfera perfetta.",
+      "A forma di ciambella.",
+      "A forma di clessidra."
+    ],
+    "answer": 2,
+    [span_28](start_span)"rationale": "Le antenne VHF sono progettate per irradiare il segnale creando un solido di irradiazione simile a una 'ciambella'.[span_28](end_span)"
+  },
+  {
+    "question": "Qual è il valore ideale del R.O.S. (Rapporto d'Onda Stazionaria)?",
+    "options": [
+      "0",
+      "1",
+      "3",
+      "50"
+    ],
+    "answer": 1,
+    [span_29](start_span)"rationale": "Il ROS indica quanto bene la radio e l'antenna sono accordate tra loro e il suo valore deve essere 1.[span_29](end_span)"
+  },
+  {
+    "question": "Cosa accade se il R.O.S. è maggiore di 3?",
+    "options": [
+      "Il segnale ottico raddoppia.",
+      "L'apparato passa in modalità Classe A.",
+      "Una quantità significativa di energia rimbalza verso la radio, riducendo la portata e potendo danneggiare l'apparato.",
+      "La radio invia un Distress automatico."
+    ],
+    "answer": 2,
+    [span_30](start_span)"rationale": "Quando il ROS è alto (> 3) una quantità significativa di energia rimbalza verso la radio, riducendo la portata e potendo danneggiare l'apparato.[span_30](end_span)"
+  },
+  {
+    "question": "Qual è la caratteristica dei canali Simplex?",
+    "options": [
+      "Trasmissione e ricezione avvengono su frequenze diverse.",
+      "Possono essere usati solo dalle stazioni costiere.",
+      "Trasmissione e ricezione avvengono sulla stessa frequenza.",
+      "Sono riservati alle comunicazioni satellitari."
+    ],
+    "answer": 2,
+    [span_31](start_span)"rationale": "Nei canali Simplex trasmissione e ricezione avvengono sulla stessa frequenza.[span_31](end_span)"
+  },
+  {
+    "question": "Perché nei canali Duplex non è possibile la comunicazione nave-nave?",
+    "options": [
+      "Perché il R.O.S. è troppo alto.",
+      "Perché trasmissione e ricezione avvengono su frequenze diverse.",
+      "Perché sono canali riservati alla trasmissione digitale.",
+      "Perché richiedono un'antenna direttiva."
+    ],
+    "answer": 1,
+    [span_32](start_span)[span_33](start_span)"rationale": "I canali duplex non possono essere utilizzati nelle comunicazioni nave-nave perché la frequenza di trasmissione e ricezione sono diverse.[span_32](end_span)[span_33](end_span)"
+  },
+  {
+    "question": "Qual è la frequenza del canale 16?",
+    "options": [
+      "156.525 MHz",
+      "156.800 MHz",
+      "162.000 MHz",
+      "30.000 MHz"
+    ],
+    "answer": 1,
+    [span_34](start_span)"rationale": "Il canale 16 opera sulla frequenza di 156.800 MHz.[span_34](end_span)"
+  },
+  {
+    "question": "Per cosa è strettamente riservato il Canale 16?",
+    "options": [
+      "Traffico portuale.",
+      "Comunicazioni digitali DSC.",
+      "Chiamate di soccorso, sicurezza, urgenti e chiamate generali prima di spostarsi su un altro canale.",
+      "Comunicazioni private."
+    ],
+    "answer": 2,
+    [span_35](start_span)"rationale": "Il canale 16 è riservato a chiamate di soccorso e sicurezza, messaggi urgenti e chiamate generali prima di spostarsi su un altro canale.[span_35](end_span)"
+  },
+  {
+    "question": "Quale canale radio primario utilizza il VTS di Venezia?",
+    "options": [
+      "Canale 16",
+      "Canale 13",
+      "Canale 11",
+      "Canale 9"
+    ],
+    "answer": 3,
+    [span_36](start_span)"rationale": "Il canale radio primario di lavoro per il VTS di Venezia è il canale 9.[span_36](end_span)"
+  },
+  {
+    "question": "Come si comportano le cifre del M.M.S.I. per una Stazione Radio Costiera?",
+    "options": [
+      "Iniziano sempre con 111.",
+      "Iniziano sempre con 98.",
+      "Iniziano sempre con due zeri (00).",
+      "Terminano sempre con due zeri (00)."
+    ],
+    "answer": 2,
+    [span_37](start_span)"rationale": "Il M.M.S.I. delle stazioni costiere è sempre formato da 9 cifre, ma le prime due cifre sono sempre due 0 (zero).[span_37](end_span)"
+  },
+  {
+    "question": "A chi appartiene un MMSI che inizia con 111?",
+    "options": [
+      "Mezzi di soccorso aerei.",
+      "Stazioni radio costiere.",
+      "Navi passeggeri.",
+      "Imbarcazioni di salvataggio associate a nave madre."
+    ],
+    "answer": 0,
+    [span_38](start_span)"rationale": "Il prefisso 111 viene utilizzato da mezzi di soccorso aerei.[span_38](end_span)"
+  },
+  {
+    "question": "Da cosa è solitamente costituito il Call Sign (Nominativo Internazionale) per le unità italiane?",
+    "options": [
+      "Da 9 numeri.",
+      "Da 4 lettere ed inizia sempre con la lettera I (India).",
+      "Da 3 lettere seguite dal MID.",
+      "Dal prefisso 00 seguito dal MID."
+    ],
+    "answer": 1,
+    [span_39](start_span)"rationale": "Per l'Italia il Call Sign risulta costituito da 4 lettere ed inizia sempre con la I.[span_39](end_span)"
+  },
+  {
+    "question": "Qual è lo scopo del comando 'Radio Check' in fonia?",
+    "options": [
+      "Chiedere silenzio radio.",
+      "Confermare la ricezione.",
+      "Richiedere un controllo sulla propria trasmissione.",
+      "Passare la comunicazione."
+    ],
+    "answer": 2,
+    [span_40](start_span)"rationale": "Radio Check si utilizza quando si richiede un controllo sulla propria trasmissione.[span_40](end_span)"
+  },
+  {
+    "question": "Quali sono le parole da utilizzare per avviare una comunicazione di URGENCY?",
+    "options": [
+      "MAY DAY, MAY DAY, MAY DAY",
+      "SÉCURITÉ, SÉCURITÉ, SÉCURITÉ",
+      "PAN PAN, PAN PAN, PAN PAN",
+      "URGENCY, URGENCY, URGENCY"
+    ],
+    "answer": 2,
+    [span_41](start_span)"rationale": "Per una chiamata di Urgency si prende il microfono e si pronuncia: PAN PAN, PAN PAN, PAN PAN.[span_41](end_span)"
+  },
+  {
+    "question": "Quali sono le parole da utilizzare per avviare una comunicazione di SAFETY?",
+    "options": [
+      "MAY DAY, MAY DAY, MAY DAY",
+      "SÉCURITÉ, SÉCURITÉ, SÉCURITÉ",
+      "PAN PAN, PAN PAN, PAN PAN",
+      "SAFETY, SAFETY, SAFETY"
+    ],
+    "answer": 1,
+    [span_42](start_span)"rationale": "Per una chiamata di Safety si prende il microfono e si pronuncia: SÉCURITÉ, SÉCURITÉ, SÉCURITÉ.[span_42](end_span)"
+  },
+  {
+    "question": "Per quanto tempo deve essere mantenuto premuto il tasto rosso DISTRESS per avviare la chiamata?",
+    "options": [
+      "1 secondo",
+      "Almeno 3-5 secondi",
+      "10 secondi esatti",
+      "Fino alla risposta della stazione costiera"
+    ],
+    "answer": 1,
+    [span_43](start_span)"rationale": "Si deve mantenere premuto il tasto rosso [DISTRESS] per almeno 3-5 secondi.[span_43](end_span)"
+  },
+  {
+    "question": "Quale sottomenù seleziona un'emergenza per 'Uomo in mare'?",
+    "options": [
+      "Floading",
+      "Fire",
+      "MOB (Man Over Board)",
+      "Grounding"
+    ],
+    "answer": 2,
+    [span_44](start_span)"rationale": "Nel sottomenù NATURE of DISTRESS l'emergenza per uomo in mare è indicata come MOB (Man Over Board).[span_44](end_span)"
+  },
+  {
+    "question": "Qual è la prima operazione da compiere per annullare fisicamente un falso allarme Distress?",
+    "options": [
+      "Premere il tasto ACK.",
+      "Abbassare lo Squelch.",
+      "Spegnimento e successiva immediata riaccensione della stazione radio.",
+      "Avviare una chiamata Routine."
+    ],
+    "answer": 2,
+    [span_45](start_span)"rationale": "L'operazione di ANNULLAMENTO richiede sempre lo spegnimento e la successiva immediata riaccensione della stazione radio, operazione che blocca la ripetizione dell'allarme.[span_45](end_span)"
+  }
+]
